@@ -35,7 +35,24 @@ export default function Application(props) {
     };
 
     const url = `http://localhost:8001/api/appointments/${id}`;
-    return axios({ url, method: "PUT", data: appointment }).then((response) => {
+    return axios({ url, method: "PUT", data: appointment }).then(() => {
+      setState({ ...state, appointments });
+    });
+  };
+
+  const cancelInterview = (id) => {
+    const appointment = {
+      ...state.appointments[id],
+      interview: null,
+    };
+
+    const appointments = {
+      ...state.appointments,
+      [id]: appointment,
+    };
+
+    const url = `http://localhost:8001/api/appointments/${id}`;
+    return axios({ url, method: "DELETE", data: appointment }).then(() => {
       setState({ ...state, appointments });
     });
   };
@@ -67,6 +84,7 @@ export default function Application(props) {
         interview={interview}
         interviewers={interviewers}
         bookInterview={bookInterview}
+        cancelInterview={cancelInterview}
       />
     );
   });

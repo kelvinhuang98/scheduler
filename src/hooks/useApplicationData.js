@@ -21,9 +21,16 @@ export default function useApplicationData() {
       [id]: appointment,
     };
 
+    const spots = state.days.map((day) => {
+      if (day.appointments.includes(id)) {
+        day.spots = day.spots - 1;
+      }
+      return day;
+    });
+
     const url = `http://localhost:8001/api/appointments/${id}`;
     return axios({ url, method: "PUT", data: appointment }).then(() => {
-      setState({ ...state, appointments });
+      setState({ ...state, appointments, spots });
     });
   };
 
@@ -38,9 +45,16 @@ export default function useApplicationData() {
       [id]: appointment,
     };
 
+    const spots = state.days.map((day) => {
+      if (day.appointments.includes(id)) {
+        day.spots = day.spots + 1;
+      }
+      return day;
+    });
+
     const url = `http://localhost:8001/api/appointments/${id}`;
     return axios({ url, method: "DELETE", data: appointment }).then(() => {
-      setState({ ...state, appointments });
+      setState({ ...state, appointments, spots });
     });
   };
 

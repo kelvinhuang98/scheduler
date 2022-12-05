@@ -34,7 +34,10 @@ export default function Application(props) {
       [id]: appointment,
     };
 
-    setState({ ...state, appointments });
+    const url = `http://localhost:8001/api/appointments/${id}`;
+    return axios({ url, method: "PUT", data: appointment }).then((response) => {
+      setState({ ...state, appointments });
+    });
   };
 
   useEffect(() => {

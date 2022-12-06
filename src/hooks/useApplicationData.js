@@ -29,7 +29,7 @@ export default function useApplicationData() {
     });
 
     const url = `http://localhost:8001/api/appointments/${id}`;
-    return axios({ url, method: "PUT", data: appointment }).then(() => {
+    return axios.put(url, appointment).then(() => {
       setState({ ...state, appointments, spots });
     });
   };
@@ -60,9 +60,9 @@ export default function useApplicationData() {
 
   useEffect(() => {
     Promise.all([
-      Promise.resolve(axios.get("http://localhost:8001/api/days")),
-      Promise.resolve(axios.get("http://localhost:8001/api/appointments")),
-      Promise.resolve(axios.get("http://localhost:8001/api/interviewers")),
+      Promise.resolve(axios.get("/api/days")),
+      Promise.resolve(axios.get("/api/appointments")),
+      Promise.resolve(axios.get("/api/interviewers")),
     ]).then((all) => {
       setState((prev) => ({
         ...prev,

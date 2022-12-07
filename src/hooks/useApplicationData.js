@@ -21,16 +21,24 @@ export default function useApplicationData() {
       [id]: appointment,
     };
 
-    const spots = state.days.map((day) => {
-      if (day.appointments.includes(id)) {
-        day.spots = day.spots - 1;
+    const appointmentDay = state.days.find((day) =>
+      day.appointments.includes(id)
+    );
+
+    const spotsLeft = state.days.map((day) => {
+      if (
+        day.name === appointmentDay.name &&
+        state.appointments[id].interview === null
+      ) {
+        return { ...day, spots: day.spots - 1 };
+      } else {
+        return day;
       }
-      return day;
     });
 
     const url = `http://localhost:8001/api/appointments/${id}`;
     return axios.put(url, appointment).then(() => {
-      setState({ ...state, appointments, spots });
+      setState({ ...state, appointments, days: spotsLeft });
     });
   };
 
@@ -45,16 +53,21 @@ export default function useApplicationData() {
       [id]: appointment,
     };
 
-    const spots = state.days.map((day) => {
-      if (day.appointments.includes(id)) {
-        day.spots = day.spots + 1;
+    const appointmentDay = state.days.find((day) =>
+      day.appointments.includes(id)
+    );
+
+    const spotsLeft = state.days.map((day) => {
+      if (day.name === appointmentDay.name) {
+        return { ...day, spots: day.spots + 1 };
+      } else {
+        return day;
       }
-      return day;
     });
 
     const url = `http://localhost:8001/api/appointments/${id}`;
-    return axios({ url, method: "DELETE", data: appointment }).then(() => {
-      setState({ ...state, appointments, spots });
+    return axios.delete(url, appointment).then(() => {
+      setState({ ...state, appointments, days: spotsLeft });
     });
   };
 

@@ -30,7 +30,7 @@ Testing the features of the web application using various testing libraries was 
 
 ## Final Product
 
-Overview of Scheduler App
+<b>Overview of Scheduler App</b>
 
 <img src="https://github.com/kelvinhuang98/scheduler/blob/master/docs/Scheduler-Overview.gif" alt="Overview of Scheduler App" />
 

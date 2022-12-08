@@ -29,3 +29,9 @@ npm run storybook
 Testing the features of the web application using various testing libraries was a focal point during the creation of Interview Scheduler. Storybook was used to test each designed element in isolation, Jest was used to perform integration tests, and end-to-end testing was done through Cypress.
 
 ## Final Product
+
+Overview of Scheduler App
+
+<img src="https://github.com/kelvinhuang98/scheduler/blob/master/docs/Scheduler-Overview.gif" alt="Overview of Scheduler App" />
+
+The styling for the day changes depending on if the user hovers or selects the day; the colour changes to red to denote that it is currently being hovered, and white when the user has clicked on the day.

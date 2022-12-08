@@ -35,3 +35,27 @@ Testing the features of the web application using various testing libraries was 
 <img src="https://github.com/kelvinhuang98/scheduler/blob/master/docs/Scheduler-Overview.gif" alt="Overview of Scheduler App" />
 
 The styling for the day changes depending on if the user hovers or selects the day; the colour changes to red to denote that it is currently being hovered, and white when the user has clicked on the day.
+
+<b>Creation of Interview</b>
+
+<img src="https://github.com/kelvinhuang98/scheduler/blob/master/docs/Scheduler-Create.gif" alt="Interview Creation" />
+
+The user can click on the plus sign on an empty timeslot to begin the appointment-creation process. After entering their name and choosing one of the appointed interviewers for the selected day, the user can press the save button and their appointment will be displayed on the timeslot.
+
+<b>Missing Form Values</b>
+
+<img src="https://github.com/kelvinhuang98/scheduler/blob/master/docs/Scheduler-Missing-Inputs.gif" alt="Missing Values" />
+
+Error messages will be shown when a user attempts to save their appointment using a blank name or without selecting an interviewer.
+
+<b>Editing an Appointment</b>
+
+<img src="https://github.com/kelvinhuang98/scheduler/blob/master/docs/Scheduler-Edit.gif" alt="Edit" />
+
+Clicking the left button on the bottom-right of the appointment will allow users to change the inputted name or selected interviewer.
+
+<b>Canceling an Appointment</b>
+
+<img src="https://github.com/kelvinhuang98/scheduler/blob/master/docs/Scheduler-Delete.gif" alt="Delete" />
+
+Clicking the right button on the bottom-right of the appointment will allow users to delete an appointment. Users will be asked to confirm their choice. Pressing confirm will delete the appointment, and pressing cancel will show the original appointment information.

@@ -24,6 +24,19 @@ npm test
 npm run storybook
 ```
 
+## API Server Setup
+
+The API server must be connected to the web application as it is essential for persisting the interview and appointment data to a database. Thus, the API server and scheduler web application must both be running at the same time.
+
+- Fork and clone the [scheduler-api](https://github.com/lighthouse-labs/scheduler-api) into a new directory
+- Follow the instrucitions outlined in the README.md which will involve a few steps, including:
+  - Installing dependencies
+  - Creating the database
+  - Creating a .env.development file in the root directory
+  - Seeding the database
+  - Running the server
+- Once setup is completed, start the scheduler-api server by entering the command `npm start` in the root directory
+
 ## Testing
 
 Testing the features of the web application using various testing libraries was a focal point during the creation of Interview Scheduler. Storybook was used to test each designed element in isolation, Jest was used to perform integration tests, and end-to-end testing was done through Cypress.

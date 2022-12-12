@@ -1,3 +1,4 @@
+// function to return the appointments scheduled on the selected day
 export function getAppointmentsForDay(state, day) {
   let output = [];
   for (const element of state.days) {
@@ -12,6 +13,7 @@ export function getAppointmentsForDay(state, day) {
   return output;
 }
 
+// function to return the student and interviewer for an existing interview
 export function getInterview(state, interview) {
   let output = {};
 
@@ -25,6 +27,7 @@ export function getInterview(state, interview) {
   return output;
 }
 
+// function to return the interviewers for the selected day
 export function getInterviewersForDay(state, day) {
   let output = [];
   for (const element of state.days) {

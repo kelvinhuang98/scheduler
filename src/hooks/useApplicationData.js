@@ -36,8 +36,7 @@ export default function useApplicationData() {
       }
     });
 
-    const url = `http://localhost:8001/api/appointments/${id}`;
-    return axios.put(url, appointment).then(() => {
+    return axios.put(`/api/appointments/${id}`, appointment).then(() => {
       setState({ ...state, appointments, days: spotsLeft });
     });
   };
@@ -65,8 +64,7 @@ export default function useApplicationData() {
       }
     });
 
-    const url = `http://localhost:8001/api/appointments/${id}`;
-    return axios.delete(url, appointment).then(() => {
+    return axios.delete(`/api/appointments/${id}`, appointment).then(() => {
       setState({ ...state, appointments, days: spotsLeft });
     });
   };

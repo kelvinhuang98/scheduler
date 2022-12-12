@@ -10,6 +10,7 @@ export default function useApplicationData() {
 
   const setDay = (day) => setState({ ...state, day });
 
+  // adds a new interview in the appointments state by making a PUT request and updates the spots remaining
   const bookInterview = (id, interview) => {
     const appointment = {
       ...state.appointments[id],
@@ -41,6 +42,7 @@ export default function useApplicationData() {
     });
   };
 
+  // removes an existing interview from the appointments state by making a DELETE request and updates the spots remaining
   const cancelInterview = (id) => {
     const appointment = {
       ...state.appointments[id],
@@ -69,6 +71,7 @@ export default function useApplicationData() {
     });
   };
 
+  // takes data from the API server to populate the app
   useEffect(() => {
     Promise.all([
       Promise.resolve(axios.get("/api/days")),
